@@ -1,0 +1,22 @@
+{
+  "name": "cancha",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Monorepo de marcador y cuotas de tenis. API Node.js y web Svelte.",
+  "workspaces": [
+    "apps/api",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c green,yellow \"npm run dev -w @cancha/api\" \"npm run dev -w @cancha/web\"",
+    "build": "npm run build -w @cancha/web",
+    "start": "npm run start -w @cancha/api",
+    "test": "npm run test -w @cancha/api"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

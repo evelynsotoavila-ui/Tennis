@@ -1,0 +1,25 @@
+# Blueprint de Render: un servicio web sirve la API y el build de Svelte.
+# Así la clave de RapidAPI permanece en el servidor y no hace falta CORS.
+services:
+  - type: web
+    name: cancha
+    runtime: node
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: NPM_CONFIG_PRODUCTION=false npm install && npm run build -w @cancha/web
+    startCommand: npm run start -w @cancha/api
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: RAPIDAPI_HOST
+        value: tennisapi1.p.rapidapi.com
+      - key: RAPIDAPI_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ANTHROPIC_MODEL
+        value: claude-opus-5-5
+      - key: WEB_DIST
+        value: apps/web/dist

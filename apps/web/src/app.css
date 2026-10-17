@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-sans: "Outfit", "Segoe UI", sans-serif;
+  --color-ink: #121610;
+  --color-court: #1a241c;
+  --color-panel: #202a22;
+  --color-line: #f4ecdc;
+  --color-muted: #b7c0b2;
+  --color-clay: #e07a45;
+  --color-ball: #d6f25c;
+  --color-miss: #f0b4a2;
+}
+
+html {
+  background: var(--color-ink);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--color-line);
+  font-family: var(--font-sans);
+  background-color: var(--color-ink);
+  background-image:
+    linear-gradient(rgba(244, 236, 220, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 236, 220, 0.045) 1px, transparent 1px);
+  background-size: 100% 56px, 88px 100%;
+  background-position: center top;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--color-ball);
+  color: var(--color-ink);
+}
